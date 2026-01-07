@@ -3,6 +3,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Image from "next/image";
 import {NormantonMarkdown} from "@/markdowns/normanton";
+import {OkraMarkdown} from "@/markdowns/okra";
 import {SimvicMarkdown} from "@/markdowns/simvic";
 
 export default async function Home({
@@ -13,6 +14,17 @@ export default async function Home({
     const search = searchParams?.app
     let index = 0
     const tabs = [
+        {
+            title: "Okra - Fine Indian Dining",
+            value: "okra",
+            content: (
+                <div
+                    className="w-full relative h-full rounded-2xl p-10 font-bold space-y-8 text-white bg-neutral-800 border-2 border-orange-500 overflow-y-auto items-center flex flex-col">
+                    <span className="w-full text-center items-center text-3xl">Okra - Fine Indian Dining App Privacy Policy</span>
+                    <Markdown className="prose prose-invert prose:w-full" remarkPlugins={[remarkGfm]}>{OkraMarkdown}</Markdown>
+                </div>
+            ),
+        },
         {
             title: "Normanton",
             value: "normanton",
