@@ -5,6 +5,7 @@ import Image from "next/image";
 import {NormantonMarkdown} from "@/markdowns/normanton";
 import {OkraMarkdown} from "@/markdowns/okra";
 import {SimvicMarkdown} from "@/markdowns/simvic";
+import {SwyftClientMarkdown} from "@/markdowns/swyft-client";
 
 export default async function Home({
                                  searchParams,
@@ -14,6 +15,17 @@ export default async function Home({
     const search = searchParams?.app
     let index = 0
     const tabs = [
+        {
+            title: "Swyft Courier Client App",
+            value: "swyft-client",
+            content: (
+                <div
+                    className="w-full relative h-full rounded-2xl p-10 font-bold space-y-8 text-white bg-neutral-800 border-2 border-orange-500 overflow-y-auto items-center flex flex-col">
+                    <span className="w-full text-center items-center text-3xl">Swyft Courier Client App Privacy Policy</span>
+                    <Markdown className="prose prose-invert prose:w-full" remarkPlugins={[remarkGfm]}>{SwyftClientMarkdown}</Markdown>
+                </div>
+            ),
+        },
         {
             title: "Okra - Fine Indian Dining",
             value: "okra",
